@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curated Living — Home Decor Inspiration</title>
+    <meta name="description" content="Discover curated home decor pieces that blend modern design with timeless elegance. Inspiration for every room." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #faf8f5;
+            --bg-card: #ffffff;
+            --text-primary: #1e1e1e;
+            --text-secondary: #5a5a5a;
+            --text-muted: #8a8a8a;
+            --accent: #c8a882;
+            --accent-hover: #b8946e;
+            --border-light: #ece8e3;
+            --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.08);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            padding: 20px 0 16px;
+            border-bottom: 1px solid var(--border-light);
+            background: rgba(250, 248, 245, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: box-shadow 0.3s ease;
+        }
+        .navbar.scrolled {
+            box-shadow: 0 2px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo span {
+            color: var(--accent);
+        }
+        .logo-icon {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: var(--accent);
+            border-radius: 6px;
+            position: relative;
+        }
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            right: 6px;
+            bottom: 6px;
+            border: 2px solid #fff;
+            border-radius: 3px;
+            opacity: 0.6;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        .nav-links a {
+            transition: color 0.25s ease;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--text-primary);
+            color: #fff !important;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 500;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        .nav-cta::after {
+            display: none !important;
+        }
+        .nav-cta:hover {
+            background: var(--accent) !important;
+            color: #fff !important;
+            transform: translateY(-1px);
+        }
+
+        /* Mobile nav toggle */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: 0.3s ease;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 60px 0 48px;
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 4px 16px;
+            border-radius: 40px;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            max-width: 720px;
+            margin: 0 auto 16px;
+        }
+        .hero h1 em {
+            color: var(--accent);
+            font-style: normal;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 520px;
+            margin: 0 auto 8px;
+            font-weight: 400;
+        }
+        .hero-sub {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* ===== FILTER TABS ===== */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 12px;
+            margin: 36px 0 44px;
+        }
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--border-light);
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font);
+        }
+        .filter-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+        .filter-btn.active {
+            background: var(--text-primary);
+            color: #fff;
+            border-color: var(--text-primary);
+        }
+
+        /* ===== PRODUCT GRID ===== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding-bottom: 60px;
+        }
+
+        /* ---- Product Card ---- */
+        .product-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: default;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-card .image-wrap {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4 / 5;
+            background: #f0ede8;
+        }
+        .product-card .image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .product-card:hover .image-wrap img {
+            transform: scale(1.04);
+        }
+
+        /* subtle overlay gradient */
+        .product-card .image-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.02) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        /* category tag on image */
+        .product-tag {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 14px;
+            border-radius: 40px;
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* info area */
+        .product-info {
+            padding: 16px 18px 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-info .name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 2px;
+            line-height: 1.3;
+        }
+        .product-info .style {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+        .product-info .desc {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin-top: 6px;
+            line-height: 1.4;
+            opacity: 0;
+            max-height: 0;
+            transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.3s ease;
+            overflow: hidden;
+        }
+        .product-card:hover .product-info .desc {
+            opacity: 1;
+            max-height: 60px;
+            margin-top: 8px;
+        }
+
+        /* ===== FEATURED BANNER (between products) ===== */
+        .featured-banner {
+            grid-column: span 2;
+            background: var(--text-primary);
+            border-radius: var(--radius);
+            padding: 32px 36px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+        .featured-banner::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: var(--accent);
+            opacity: 0.12;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .featured-banner h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+            position: relative;
+            z-index: 1;
+        }
+        .featured-banner p {
+            font-size: 0.95rem;
+            opacity: 0.7;
+            max-width: 380px;
+            position: relative;
+            z-index: 1;
+        }
+        .featured-banner .pill {
+            display: inline-block;
+            margin-top: 14px;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 6px 22px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            width: fit-content;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            position: relative;
+            z-index: 1;
+            transition: background 0.3s ease;
+            cursor: default;
+        }
+        .featured-banner .pill:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            border-top: 1px solid var(--border-light);
+            padding: 40px 0 32px;
+            margin-top: 8px;
+            background: #fff;
+        }
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .footer-left .copy {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            font-size: 0.85rem;
+        }
+        .footer-links a {
+            color: var(--text-secondary);
+            transition: color 0.25s ease;
+        }
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--border-light);
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .footer-social a:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+            background: rgba(200, 168, 130, 0.06);
+        }
+
+        /* ===== RESPONSIVE ===== */
+
+        /* Tablets */
+        @media (max-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 18px;
+            }
+            .featured-banner {
+                grid-column: span 3;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: var(--bg-card);
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                padding: 24px 28px;
+                gap: 16px;
+                border-bottom: 1px solid var(--border-light);
+                box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-toggle {
+                display: flex;
+            }
+            .nav-cta {
+                align-self: flex-start;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+            .featured-banner {
+                grid-column: span 2;
+                padding: 24px 22px;
+                min-height: 140px;
+            }
+            .featured-banner h3 {
+                font-size: 1.2rem;
+            }
+            .featured-banner p {
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 40px 0 24px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .filter-bar {
+                gap: 6px 10px;
+                margin: 24px 0 28px;
+            }
+            .filter-btn {
+                font-size: 0.7rem;
+                padding: 4px 14px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+            .footer-left {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+            .footer-links {
+                flex-wrap: wrap;
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .product-info {
+                padding: 12px 14px 14px;
+            }
+            .product-info .name {
+                font-size: 0.82rem;
+            }
+            .product-info .style {
+                font-size: 0.7rem;
+            }
+            .product-tag {
+                font-size: 0.55rem;
+                padding: 3px 10px;
+                top: 10px;
+                left: 10px;
+            }
+            .featured-banner {
+                padding: 18px 18px;
+                min-height: 110px;
+            }
+            .featured-banner h3 {
+                font-size: 1rem;
+            }
+            .featured-banner p {
+                font-size: 0.75rem;
+            }
+            .featured-banner .pill {
+                font-size: 0.65rem;
+                padding: 4px 16px;
+                margin-top: 8px;
+            }
+            .container {
+                padding: 0 14px;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* ===== UTILITY ===== */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .product-card {
+            animation: fadeUp 0.6s ease both;
+        }
+        .product-card:nth-child(1) {
+            animation-delay: 0.02s;
+        }
+        .product-card:nth-child(2) {
+            animation-delay: 0.06s;
+        }
+        .product-card:nth-child(3) {
+            animation-delay: 0.10s;
+        }
+        .product-card:nth-child(4) {
+            animation-delay: 0.14s;
+        }
+        .product-card:nth-child(5) {
+            animation-delay: 0.18s;
+        }
+        .product-card:nth-child(6) {
+            animation-delay: 0.22s;
+        }
+        .product-card:nth-child(7) {
+            animation-delay: 0.26s;
+        }
+        .product-card:nth-child(8) {
+            animation-delay: 0.30s;
+        }
+        .product-card:nth-child(9) {
+            animation-delay: 0.34s;
+        }
+        .product-card:nth-child(10) {
+            animation-delay: 0.38s;
+        }
+        .product-card:nth-child(11) {
+            animation-delay: 0.42s;
+        }
+        .product-card:nth-child(12) {
+            animation-delay: 0.46s;
+        }
+        .product-card:nth-child(13) {
+            animation-delay: 0.50s;
+        }
+        .product-card:nth-child(14) {
+            animation-delay: 0.54s;
+        }
+        .product-card:nth-child(15) {
+            animation-delay: 0.58s;
+        }
+        .product-card:nth-child(16) {
+            animation-delay: 0.62s;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAV ===== -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container nav-inner">
+            <a href="#" class="logo" aria-label="Curated Living home">
+                <span class="logo-icon" aria-hidden="true"></span>
+                Curated<span>Living</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="#" role="menuitem">Collections</a></li>
+                <li role="none"><a href="#" role="menuitem">Inspiration</a></li>
+                <li role="none"><a href="#" role="menuitem">Journal</a></li>
+                <li role="none"><a href="#" role="menuitem" class="nav-cta">Explore</a></li>
+            </ul>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <header class="hero">
+        <div class="container">
+            <span class="hero-badge">✦ Curated for you</span>
+            <h1>Where design meets <em>everyday&nbsp;life</em></h1>
+            <p>Timeless pieces, modern aesthetics — a collection that speaks to the art of living well.</p>
+            <p class="hero-sub">Explore 16 carefully selected home decor objects, each with its own story.</p>
+        </div>
+    </header>
+
+    <!-- ===== FILTERS ===== -->
+    <div class="container">
+        <div class="filter-bar" role="tablist" aria-label="Filter products by category">
+            <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+            <button class="filter-btn" data-filter="living" role="tab" aria-selected="false">Living</button>
+            <button class="filter-btn" data-filter="bedroom" role="tab" aria-selected="false">Bedroom</button>
+            <button class="filter-btn" data-filter="lighting" role="tab" aria-selected="false">Lighting</button>
+            <button class="filter-btn" data-filter="textiles" role="tab" aria-selected="false">Textiles</button>
+            <button class="filter-btn" data-filter="art" role="tab" aria-selected="false">Art</button>
+        </div>
+    </div>
+
+    <!-- ===== GRID ===== -->
+    <main>
+        <div class="container">
+            <div class="grid" id="productGrid" role="list">
+
+                <!-- Products will be injected by JavaScript -->
+                <!-- Static fallback / SSR-friendly: we render them with JS for cleaner code -->
+
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer-inner">
+            <div class="footer-left">
+                <span class="copy">&copy; 2026 Curated Living</span>
+                <ul class="footer-links">
+                    <li><a href="#" aria-label="About us">About</a></li>
+                    <li><a href="#" aria-label="Privacy policy">Privacy</a></li>
+                    <li><a href="#" aria-label="Terms of use">Terms</a></li>
+                    <li><a href="#" aria-label="Contact us">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Instagram">IG</a>
+                <a href="#" aria-label="Pinterest">Pi</a>
+                <a href="#" aria-label="Houzz">Hz</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== DATA =====
+        const products = [{
+            id: 1,
+            name: 'Pillar Arc Floor Lamp',
+            style: 'Modern Minimalist',
+            desc: 'Sculptural form with warm brass finish.',
+            category: 'lighting',
+            image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=750&fit=crop&crop=center&auto=format'
+        }, {
+            id: 2,
+            name: 'Wool & Linen Throw',
+            style: 'Scandinavian',
+            desc: 'Handwoven in a soft neutral palette.',
+            category: 'textiles',
+            image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&h=750&fit=crop&crop=center&auto=format'
+        }, {
+            id: 3,
+            name: 'Marbled Ceramic Vase',
+            style: 'Organic Modern',
+            desc: 'Unique glaze patterns, made by hand.',
+            category: 'living',
+            image: 'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600&h=750&fit=crop&crop=center&auto=format'
+        }, {
+            id: 4,
+            name: 'Abstract No. 7',
+            style: 'Contemporary Art',
+            desc: 'Large-scale canvas with earthy tones.',
+            category: 'art',
+            image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&h=750&fit=crop&crop=center&auto=format'
+        }, {
+            id: 5,
+            name: 'Slat Wood Bench',
+            style: 'Mid-Century',
+            desc: 'Solid oak with a natural oil finish.',
+            category: 'living',
+            image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&h=750&fit=crop&crop=center&auto=format'
+        }, {
+            id: 6,
+            name: 'Cloud Pendant Light',
+            style: 'Sculptural',
+            desc: 'Diffused glow through hand-blown glass.',
+            category: 'lighting',
+            image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600&h=750&fit=crop&crop=center&auto=format'
+        }, {
+            id: 7,
+            name: 'Tonal Bedding Set',
+            style: 'Warm Neutral',
+            desc: '100% organic cotton sateen weave.',
+            category: 'bedroom',
+            image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&h=750&fit=crop&crop=center&auto=format'
+        }, {
+            id: 8,
+            name: 'Geometric Mirror',
+            style: 'Art Deco',
+            desc: 'Brass frame with faceted edges.',
+            category: 'living',
+            image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=750&fit=crop&crop=center&auto=format'
+        }, {
+            id: 9,
+            name: 'Handwoven Rug',
+            style: 'Boho Texture',
+            desc: 'Wool and jute blend, fringe details.',
+            category: 'textiles',
+            image: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600&h=750&fit=crop&crop=center&auto=format'
+        }, {
+            id: 10,
+            name: 'Sculptural Side Table',
+            style: 'Brutalist',
+            desc: 'Cast concrete with a matte finish.',
+            category: 'living',
+            image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&h=750&fit=crop&crop=center&auto=format'
+        }, {
+            id: 11,
+            name: 'Oversized Wall Clock',
+            style: 'Industrial',
+            desc: 'Silent movement, matte black dial.',
+            category: 'living',
+            image: 'https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=600&h=750&fit=crop&crop=center&auto=format'
+        }, {
+            id: 12,
+            name: 'Velvet Cushion Set',
+            style: 'Luxe Modern',
+            desc: 'Deep olive and rust tones, feather fill.',
+            category: 'textiles',
+            image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&h=750&fit=crop&crop=center&auto=format'
+        }, {
+            id: 13,
+            name: 'Minimalist Bookends',
+            style: 'Modernist',
+            desc: 'Solid marble, geometric form.',
+            category: 'living',
+            image: 'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600&h=750&fit=crop&crop=center&auto=format'
+        }, {
+            id: 14,
+            name: 'Framed Botanical Print',
+            style: 'Vintage Naturalist',
+            desc: 'Giclée print on archival paper.',
+            category: 'art',
+            image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&h=750&fit=crop&crop=center&auto=format'
+        }, {
+            id: 15,
+            name: 'Textured Throw Pillow',
+            style: 'Boho',
+            desc: 'Hand-knotted cotton, fringed edges.',
+            category: 'textiles',
+            image: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600&h=750&fit=crop&crop=center&auto=format'
+        }, {
+            id: 16,
+            name: 'Glass Terrarium',
+            style: 'Biophilic',
+            desc: 'Handblown glass with wooden base.',
+            category: 'living',
+            image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=750&fit=crop&crop=center&auto=format'
+        }];
+
+        // ===== RENDER =====
+        const grid = document.getElementById('productGrid');
+
+        function renderProducts(filter = 'all') {
+            const filtered = filter === 'all' ?
+                products :
+                products.filter(p => p.category === filter);
+
+            // Build HTML
+            let html = '';
+            filtered.forEach((p, index) => {
+                // Insert featured banner after 4th item (only on first render / all)
+                // We'll place it at a fixed position in the grid
+                html += `
+                        <div class="product-card" data-category="${p.category}" role="listitem" style="animation-delay: ${(index * 0.04)}s">
+                            <div class="image-wrap">
+                                <img src="${p.image}" alt="${p.name} — ${p.style}" loading="lazy" width="600" height="750" />
+                                <span class="product-tag">${p.style}</span>
+                            </div>
+                            <div class="product-info">
+                                <span class="name">${p.name}</span>
+                                <span class="style">${p.style}</span>
+                                <p class="desc">${p.desc}</p>
+                            </div>
+                        </div>
+                    `;
+            });
+
+            // Insert the featured banner at a specific spot (after 4th item or at position 5)
+            // We'll use a more robust approach: insert after the 4th item if there are at least 4 items
+            // But since we render all at once, we'll use a placeholder approach with a marker.
+            // Better: use a separate insertion after rendering.
+
+            // We'll render cards, then inject banner via DOM manipulation.
+            grid.innerHTML = html;
+
+            // Now insert the featured banner after the 4th product card (if we have at least 4)
+            const cards = grid.querySelectorAll('.product-card');
+            if (cards.length >= 4) {
+                const banner = document.createElement('div');
+                banner.className = 'product-card featured-banner';
+                banner.setAttribute('role', 'listitem');
+                banner.innerHTML = `
+                        <h3>✦ Curated Collection</h3>
+                        <p>Each piece in this edit has been chosen for its quality, timelessness, and quiet beauty.</p>
+                        <span class="pill">View the full edit</span>
+                    `;
+                // Insert after the 4th card (index 3)
+                cards[3].after(banner);
+            }
+        }
+
+        // ===== FILTER LOGIC =====
+        const filterButtons = document.querySelectorAll('.filter-btn');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active state
+                filterButtons.forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                this.classList.add('active');
+                this.setAttribute('aria-selected', 'true');
+
+                const filter = this.getAttribute('data-filter');
+                renderProducts(filter);
+            });
+        });
+
+        // ===== MOBILE NAV TOGGLE =====
+        const toggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        toggle.addEventListener('click', () => {
+            const expanded = navLinks.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', expanded);
+        });
+
+        // Close on link click (mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // ===== NAVBAR SCROLL SHADOW =====
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll > 12) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // ===== INITIAL RENDER =====
+        renderProducts('all');
+
+        // ===== KEYBOARD SUPPORT FOR FILTERS =====
+        filterButtons.forEach((btn, idx, arr) => {
+            btn.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    const next = arr[(idx + 1) % arr.length];
+                    next.focus();
+                    next.click();
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    const prev = arr[(idx - 1 + arr.length) % arr.length];
+                    prev.focus();
+                    prev.click();
+                }
+            });
+        });
+
+        console.log('✨ Curated Living — Home Decor Inspiration');
+        console.log('📦 16 products loaded. Filter them by category.');
+    </script>
+
+</body>
+</html>
